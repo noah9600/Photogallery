@@ -8,7 +8,7 @@ const Photos = () => {
         <div className=" h-1/2 ">
           <Image
             className="w-full h-auto "
-            src="/images/IMG_7533.jpg"
+            src="/images/g.jpg"
             alt="Image"
             width={640}
             height={427}

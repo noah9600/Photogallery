@@ -10,11 +10,11 @@ const images = [
   { src: "/images/b.jpg", alt: "Image 2" },
   { src: "/images/c.jpg", alt: "Image 3" },
   { src: "/images/d.jpg", alt: "Image 4" },
-  { src: "/images/IMG_7530.jpg", alt: "Image 5" },
-  { src: "/images/IMG_7534.jpg", alt: "Image 6" },
-  { src: "/images/IMG_7540.jpg", alt: "Image 7" },
-  { src: "/images/IMG_7531.jpg", alt: "Image 8" },
-  { src: "/images/IMG_7550.jpg", alt: "Image 9" },
+  { src: "/images/g.jpg", alt: "Image 5" },
+  { src: "/images/h.jpg", alt: "Image 6" },
+  { src: "/images/i.jpg", alt: "Image 7" },
+  { src: "/images/j.jpg", alt: "Image 8" },
+  { src: "/images/k.jpg", alt: "Image 9" },
 ];
 
 const PhotoSlider = () => {
