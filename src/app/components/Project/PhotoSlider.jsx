@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react";
+import React from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
