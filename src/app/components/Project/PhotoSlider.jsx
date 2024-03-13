@@ -1,153 +1,96 @@
 "use client"
 
-import React from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import React, { useState, useEffect } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import Image from "next/image";
+
+const images = [
+  { src: "/images/a.jpeg", alt: "Image 1" },
+  { src: "/images/b.jpg", alt: "Image 2" },
+  { src: "/images/c.jpg", alt: "Image 3" },
+  { src: "/images/d.jpg", alt: "Image 4" },
+  { src: "/images/IMG_7530.jpg", alt: "Image 5" },
+  { src: "/images/IMG_7534.jpg", alt: "Image 6" },
+  { src: "/images/IMG_7540.jpg", alt: "Image 7" },
+  { src: "/images/IMG_7531.jpg", alt: "Image 8" },
+  { src: "/images/IMG_7550.jpg", alt: "Image 9" },
+];
 
 const PhotoSlider = () => {
-  const [open, setOpen] = React.useState(false);
+  const [sliderOpen, setSliderOpen] = useState(false);
+
+  const openSlider = () => setSliderOpen(true);
+  const closeSlider = () => setSliderOpen(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeSlider();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
-    <section id='PhotoSlider'>
-      <>
-      <div className=" flex items-center justify-center">
+    <>
+      <div className="flex items-center justify-center">
         <button
           className="bg-white hover:bg-primary-600 m-auto font-bold text-black py-2.5 px-5 rounded-lg"
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={openSlider}
         >
           CHECK MY WORK
         </button>
       </div>
-        <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          slides={[
-            {
-              src: "/images/a.jpeg",
-              alt: "Image 1",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/a.jpeg", width: 320, height: 213 },
-                { src: "/images/a.jpeg", width: 640, height: 427 },
-                { src: "/images/a.jpeg", width: 1200, height: 800 },
-                { src: "/images/a.jpeg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/b.jpg",
-              alt: "Image 2",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/b.jpg", width: 320, height: 213 },
-                { src: "/images/b.jpg", width: 640, height: 427 },
-                { src: "/images/b.jpg", width: 1200, height: 800 },
-                { src: "/images/b.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/c.jpg",
-              alt: "Image 3",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/c.jpg", width: 320, height: 213 },
-                { src: "/images/c.jpg", width: 640, height: 427 },
-                { src: "/images/c.jpg", width: 1200, height: 800 },
-                { src: "/images/c.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/d.jpg",
-              alt: "Image 4",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/d.jpg", width: 320, height: 213 },
-                { src: "/images/d.jpg", width: 640, height: 427 },
-                { src: "/images/d.jpg", width: 1200, height: 800 },
-                { src: "/images/d.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/IMG_7540.jpg",
-              alt: "Image 5",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/IMG_7540.jpg", width: 320, height: 213 },
-                { src: "/images/IMG_7540.jpg", width: 640, height: 427 },
-                { src: "/images/IMG_7540.jpg", width: 1200, height: 800 },
-                { src: "/images/IMG_7540.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/IMG_7534.jpg",
-              alt: "Image 6",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/IMG_7534.jpg", width: 320, height: 213 },
-                { src: "/images/IMG_7534.jpg", width: 640, height: 427 },
-                { src: "/images/IMG_7534.jpg", width: 1200, height: 800 },
-                { src: "/images/IMG_7534.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/IMG_7550.jpg",
-              alt: "Image 7",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/IMG_7550.jpg", width: 320, height: 213 },
-                { src: "/images/IMG_7550.jpg", width: 640, height: 427 },
-                { src: "/images/IMG_7550.jpg", width: 1200, height: 800 },
-                { src: "/images/IMG_7550.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/IMG_7532.jpg",
-              alt: "Image 7",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/IMG_7532.jpg", width: 320, height: 213 },
-                { src: "/images/IMG_7532.jpg", width: 640, height: 427 },
-                { src: "/images/IMG_7532.jpg", width: 1200, height: 800 },
-                { src: "/images/IMG_7532.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/IMG_7541.jpg",
-              alt: "Image 8",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/IMG_7541.jpg", width: 320, height: 213 },
-                { src: "/images/IMG_7541.jpg", width: 640, height: 427 },
-                { src: "/images/IMG_7541.jpg", width: 1200, height: 800 },
-                { src: "/images/IMG_7541.jpg", width: 2048, height: 1365 },
-              ],
-            },
-            {
-              src: "/images/tony.jpg",
-              alt: "Image 9",
-              width: 640,
-              height: 427,
-              srcSet: [
-                { src: "/images/tony.jpg", width: 320, height: 213 },
-                { src: "/images/tony.jpg", width: 640, height: 427 },
-                { src: "/images/tony.jpg", width: 1200, height: 800 },
-                { src: "/images/tony.jpg", width: 2048, height: 1365 },
-              ],
-            },
 
-          ]}
-        />
-      </>
-  </section>
+      {sliderOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            onClick={closeSlider}
+          ></div>
+          <div className="lg:w-1/2 md:w-1/2 ">
+            <Splide
+              options={{
+                type: "fade",
+                width: "100%",
+                autoHeight: true,
+                gap: "1rem",
+                pagination: false,
+                arrows: true,
+                keyboard: false, // Set to true if you want keyboard navigation
+              }}
+            >
+            
+              {images.map((image, index) => (
+                <SplideSlide key={index} className="w-full">
+                  <div
+                    className="cursor-pointer w-full"
+                    onClick={closeSlider}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={640}
+                      height={427}
+                      layout="responsive"
+                      objectFit="cover"
+                    />
+                  </div>
+                </SplideSlide>
+              ))}
+            </Splide>
+            
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
