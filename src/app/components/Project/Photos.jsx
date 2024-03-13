@@ -10,10 +10,11 @@ const Photos = () => {
             className="w-full h-auto "
             src="/images/IMG_7533.jpg"
             alt="Image"
-            width={640} // Specify the width here
-            height={427} // Optionally specify the height
-            layout="responsive" // Specify the layout
-            objectFit="cover" // Specify the objectFit
+            width={640}
+            height={427}
+            layout="responsive"
+            objectFit="cover"
+
           />
         </div>
       </div>
